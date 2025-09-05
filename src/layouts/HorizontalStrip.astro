@@ -1,0 +1,11 @@
+---
+import SingleSection from '../components/SingleSection.astro'
+const { HorStrip1_head, HorStrip1_body, HorStrip1_foot } = Astro.props
+const { d, e, f } = Astro.props
+---
+
+
+<div class="flex justify-around align-middle">
+    <SingleSection a={HorStrip1_head} b={HorStrip1_body} c={HorStrip1_foot}/>
+    <SingleSection a={d} b={e} c={f}/>
+</div>
