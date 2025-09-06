@@ -1,9 +1,10 @@
 ---
-const { a, b, c } = Astro.props
+const { headText, bodyText, footText } = Astro.props
+const { classAttr = "text-3xl font-normal flex flex-col align-middle bg-amber-500 justify-center p-1"} = Astro.props;
 ---
 
-<div class=" text-3xl font-normal flex align-middle bg-amber-500 justify-center p-1">
-    <h1>{a}</h1>
-    <button>{b}</button>
-    <p>{c}</p>
+<div class={classAttr}>
+    <h1>{headText}</h1>
+    <p>{bodyText}</p>
+    <p>{footText}</p>
 </div>

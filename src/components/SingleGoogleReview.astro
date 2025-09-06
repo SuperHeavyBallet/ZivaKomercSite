@@ -1,0 +1,21 @@
+---
+const { headText, bodyText, numberOfStars } = Astro.props
+const { classAttr = "text-3xl font-normal flex flex-col align-middle bg-amber-500 justify-center p-1"} = Astro.props;
+
+// Make an array of 5 slots, mark which ones are filled
+const totalStars = 5;
+const stars = Array.from({ length: totalStars }, (_, i) => i < numberOfStars);
+---
+
+<div class={classAttr} data-stars={numberOfStars}>
+    <h1>{headText}</h1>
+    <p>{bodyText}</p>
+    <div id="starHolder">
+        {stars.map((filled) => (
+          <span class={`star-slot ${filled ? "text-yellow-500" : "text-gray-400"}`}>
+            ★
+          </span>
+        ))}
+      </div>
+</div>
+
