@@ -2,7 +2,7 @@
 const { class: className = "" } = Astro.props;
 ---
 
-<div class={`flex flex-row ${className} bg-amber-900 border-1`}>
+<div class="flex flex-row align-middle justify-center border-2">
   <slot name="left" />
   <slot name="right" />
 </div>
