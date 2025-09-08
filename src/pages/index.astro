@@ -7,34 +7,50 @@ import HorizontalStrip from '../layouts/HorizontalStrip.astro'
 import SingleSection from "../components/SingleSection.astro";
 import SingleImageSection from '../components/SingleImageSection.astro';
 import SingleGoogleReview from '../components/SingleGoogleReview.astro';
+import HeroBlock from '../components/HeroBlock.astro';
+import AddressBlock from '../components/AddressBlock.astro';
+import ContactForm from '../components/ContactForm.astro';
+import MapBlock from '../components/MapBlock.astro';
 
 //Hero Block
 const { companyName = "Ziva Komerc" } = Astro.props;
-const { companyAddress = ["8 Pere Segedinca", "Pancevo", "Serbia"]} = Astro.props;
-const { phoneNumber = "000 000 000"} = Astro.props;
+const { companyDescription = "We supply containers and wrapping products for businesses"} = Astro.props;
+const { contactAnchorText = "Contact Us Now"} = Astro.props;
+
 const { heroImgSrc = "src/images/HeroImage.png"} = Astro.props;
 
+//
 
+//Address Block
+const { workingHours = "Open: 08:00 - 16:00, Mon - Fri"} = Astro.props;
+const { companyAddress = ["8 Pere Segedinca", "Pancevo", "Serbia"]} = Astro.props;
+const { phoneNumber = "000 000 000"} = Astro.props;
 ---
 
 <Layout>	
 	
 
 	<HorizontalStrip>
-		<SingleImageSection slot="left" alt="Head image of Ziva Komerc Store" imgSrc={heroImgSrc} />
-		<SingleSection slot="right" headText={companyName} bodyText={companyAddress[1]} footText={phoneNumber} />
+		<SingleImageSection slot="left" alt="Head image of Ziva Komerc Store" imgSrc={heroImgSrc}/>
+		<HeroBlock slot="right" headText={companyName} bodyText={companyDescription} anchorText={contactAnchorText} anchorHref="#contactForm" />
+		
 	  </HorizontalStrip>
 
-	  <HorizontalStrip>
-		<SingleSection slot="left" headText={companyName} bodyText={companyAddress[1]} footText={phoneNumber} />
-		<SingleImageSection slot="right" alt="Head image of Ziva Komerc Store" imgSrc={heroImgSrc}/>
-	  </HorizontalStrip>
-	  	
 	  <HorizontalStrip>
 		<SingleGoogleReview slot="left" headText="Bob" bodyText="Bob bob bob" numberOfStars={3}/>
 		<SingleGoogleReview slot="left" headText="Bob" bodyText="Bob bob bob" numberOfStars={6}/>
 		<SingleGoogleReview slot="right" headText="Bob" bodyText="Bob bob bob" numberOfStars={4}/>
-		<SingleGoogleReview slot="right" headText="Bob" bodyText="Bob bob bob" numberOfStars={5}/>
 	  </HorizontalStrip>
+
+	  <HorizontalStrip>
+		<AddressBlock slot="left" workingHours={workingHours} addressText1={companyAddress[0]} addressText2={companyAddress[1]} addressText3={companyAddress[2]} phoneNumber={phoneNumber} />
+		<MapBlock slot="right" />
+	  </HorizontalStrip>
+
+	  <HorizontalStrip>
+		<ContactForm slot="left" headText="Contact Form" bodyText="ContactForm" footText="ContactForm" />
+	  </HorizontalStrip>
+	  	
+	  
 
 </Layout>

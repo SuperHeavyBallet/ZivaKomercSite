@@ -1,0 +1,10 @@
+---
+const { headText, bodyText, anchorText } = Astro.props;
+const { anchorHref } = Astro.props;
+---
+
+<div class="p-5 m-5 border-2 border-solid bg-amber-300">
+    <h1>{headText}</h1>
+    <p>{bodyText}</p>
+    <a href={anchorHref}>{anchorText}</a>
+</div>

@@ -7,7 +7,7 @@ const totalStars = 5;
 const stars = Array.from({ length: totalStars }, (_, i) => i < numberOfStars);
 ---
 
-<div class={classAttr} data-stars={numberOfStars}>
+<div class=`p-1.5 m-1.5  ${classAttr}` data-stars={numberOfStars}>
     <h1>{headText}</h1>
     <p>{bodyText}</p>
     <div id="starHolder">
