@@ -1,18 +1,21 @@
 ---
 const { headText, bodyText, numberOfStars } = Astro.props
-const { classAttr = "text-3xl font-normal flex flex-col align-middle bg-amber-500 justify-center p-1"} = Astro.props;
+const borderSettings = "rounded-md" ;
+const paddingMarginSettings = "p-4 ml-2 mr-2 mb-2";
+const backgroundSettings = "bg-gray-100 shadow-md "
+const hoverSettings = "hover:scale-110 hover:cursor-pointer"
 
 // Make an array of 5 slots, mark which ones are filled
 const totalStars = 5;
 const stars = Array.from({ length: totalStars }, (_, i) => i < numberOfStars);
 ---
 
-<div class=`p-1.5 m-1.5  ${classAttr}` data-stars={numberOfStars}>
-    <h1>{headText}</h1>
+<div class=` ${borderSettings} ${paddingMarginSettings} ${backgroundSettings} ${hoverSettings} ` data-stars={numberOfStars}>
+    <h1 class="text-center">{headText}</h1>
     <p>{bodyText}</p>
-    <div id="starHolder">
+    <div id="starHolder" class="align-middle justify-center text-center" >
         {stars.map((filled) => (
-          <span class={`star-slot ${filled ? "text-yellow-500" : "text-gray-400"}`}>
+          <span class={`star-slot ${filled ? "text-yellow-500" : "text-gray-400"} `}>
             ★
           </span>
         ))}
