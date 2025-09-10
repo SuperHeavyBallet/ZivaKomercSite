@@ -12,6 +12,8 @@ import HeroBlock from '../components/HeroBlock.astro';
 import AddressBlock from '../components/AddressBlock.astro';
 import ContactForm from '../components/ContactForm.astro';
 import MapBlock from '../components/MapBlock.astro';
+import ImageCatalogue from '../layouts/ImageCatalogue.astro';
+import CatalogueImage from '../components/CatalogueImage.astro';
 
 //Hero Block
 const { companyName = "Ziva Komerc" } = Astro.props;
@@ -22,9 +24,9 @@ const { heroImgSrc = "src/images/HeroImage.png"} = Astro.props;
 
 // Reviews Blow
 
-const { review1UserName = "Bobby Boban", review1Text = "Super, very good shop." , review1Score = 5 } = Astro.props;
-const { review2UserName = "Ivan Ivanovic", review2Text = "Excellent, very good shop." , review2Score = 5 } = Astro.props;
-const { review3UserName = "Vucic Jokic", review3Text = "Super, Excellent!." , review3Score = 4 } = Astro.props;
+const { review1UserName = "Bobby Boban", review1Href = "https://www.google.com", review1Text = "Super, very good shop." , review1Score = 5 } = Astro.props;
+const { review2UserName = "Ivan Ivanovic", review2Href = "https://www.google.com/",review2Text = "Excellent, very good shop." , review2Score = 5 } = Astro.props;
+const { review3UserName = "Vucic Jokic", review3Href = "https://www.google.com/", review3Text = "Super, Excellent!." , review3Score = 4 } = Astro.props;
 
 //
 
@@ -32,13 +34,18 @@ const { review3UserName = "Vucic Jokic", review3Text = "Super, Excellent!." , re
 const { workingHours = "Open: 08:00 - 16:00, Mon - Fri"} = Astro.props;
 const { companyAddress = ["8 Pere Segedinca", "Pancevo", "Serbia"]} = Astro.props;
 const { phoneNumber = "000 000 000"} = Astro.props;
+
+//Image Catalogue
+
+const { imageSrc_1 = "src/images/HeroImage.png"} = Astro.props;
+
 ---
 
 <Layout>	
 	
 	<HorizontalBanner/>
 	<HorizontalGhostBanner />
-	
+
 	<HorizontalStrip>
 		<SingleImageSection slot="left" alt="Head image of Ziva Komerc Store" imgSrc={heroImgSrc}/>
 		<HeroBlock slot="right" headText={companyName} bodyText={companyDescription} anchorText={contactAnchorText} anchorHref="#contactForm" />
@@ -48,10 +55,16 @@ const { phoneNumber = "000 000 000"} = Astro.props;
 
 	  <HorizontalStrip>
 		
-		<SingleGoogleReview slot="left" headText={review1UserName} bodyText={review1Text} numberOfStars={review1Score}/>
-		<SingleGoogleReview slot="left" headText={review2UserName} bodyText={review2Text} numberOfStars={review2Score}/>
-		<SingleGoogleReview slot="right" headText={review3UserName} bodyText={review3Text} numberOfStars={review3Score}/>
+		<SingleGoogleReview slot="left" headText={review1UserName} href={review1Href} bodyText={review1Text} numberOfStars={review1Score}/>
+		<SingleGoogleReview slot="left" headText={review2UserName} href={review2Href} bodyText={review2Text} numberOfStars={review2Score}/>
+		<SingleGoogleReview slot="right" headText={review3UserName} href={review3Href} bodyText={review3Text} numberOfStars={review3Score}/>
 	  </HorizontalStrip>
+
+	  <ImageCatalogue>
+		<CatalogueImage imgSrc={imageSrc_1} ></CatalogueImage>
+		<CatalogueImage imgSrc={imageSrc_1} ></CatalogueImage>
+		<CatalogueImage imgSrc={imageSrc_1} ></CatalogueImage>
+	  </ImageCatalogue>
 
 	  <HorizontalStrip>
 		<AddressBlock slot="left" workingHours={workingHours} addressText1={companyAddress[0]} addressText2={companyAddress[1]} addressText3={companyAddress[2]} phoneNumber={phoneNumber} />

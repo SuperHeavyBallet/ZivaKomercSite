@@ -1,5 +1,5 @@
 ---
-const { headText, bodyText, numberOfStars } = Astro.props
+const { headText, href, bodyText, numberOfStars } = Astro.props
 const borderSettings = "rounded-md" ;
 const paddingMarginSettings = "p-4 ml-2 mr-2 mb-2";
 const backgroundSettings = "bg-gray-100 shadow-md "
@@ -10,7 +10,7 @@ const totalStars = 5;
 const stars = Array.from({ length: totalStars }, (_, i) => i < numberOfStars);
 ---
 
-<div class=` ${borderSettings} ${paddingMarginSettings} ${backgroundSettings} ${hoverSettings} ` data-stars={numberOfStars}>
+<a href={href} class=` ${borderSettings} ${paddingMarginSettings} ${backgroundSettings} ${hoverSettings} ` data-stars={numberOfStars}>
     <h1 class="text-center">{headText}</h1>
     <p>{bodyText}</p>
     <div id="starHolder" class="align-middle justify-center text-center" >
@@ -20,5 +20,5 @@ const stars = Array.from({ length: totalStars }, (_, i) => i < numberOfStars);
           </span>
         ))}
       </div>
-</div>
+    </a>
 
