@@ -39,11 +39,22 @@ const { phoneNumber = "000 000 000"} = Astro.props;
 
 const { imageSrc_1 = "src/images/HeroImage.png"} = Astro.props;
 
+//Navbar
+
+const { anchorText1 = "Text1", anchorHref1 = ""} = Astro.props;
+const { anchorText2 = "Text2", anchorHref2 = ""} = Astro.props;
+const { anchorText3 = "Text3", anchorHref3 = ""} = Astro.props;
+const { anchorText4 = "Contact", anchorHref4 = "#contactForm"} = Astro.props;
+
 ---
 
 <Layout>	
 	
-	<HorizontalBanner/>
+	<HorizontalBanner
+		anchorText1={anchorText1} href1={anchorHref1}
+		anchorText2={anchorText2} href2={anchorHref2}
+		anchorText3={anchorText3} href3={anchorHref3}
+		anchorText4={anchorText4} href4={anchorHref4}/>
 	<HorizontalGhostBanner />
 
 	<HorizontalStrip>
@@ -61,6 +72,9 @@ const { imageSrc_1 = "src/images/HeroImage.png"} = Astro.props;
 	  </HorizontalStrip>
 
 	  <ImageCatalogue>
+		<CatalogueImage imgSrc={imageSrc_1} ></CatalogueImage>
+		<CatalogueImage imgSrc={imageSrc_1} ></CatalogueImage>
+		<CatalogueImage imgSrc={imageSrc_1} ></CatalogueImage>
 		<CatalogueImage imgSrc={imageSrc_1} ></CatalogueImage>
 		<CatalogueImage imgSrc={imageSrc_1} ></CatalogueImage>
 		<CatalogueImage imgSrc={imageSrc_1} ></CatalogueImage>

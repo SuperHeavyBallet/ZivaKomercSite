@@ -1,3 +1,10 @@
-<div class="flex flex-row align-middle justify-center p-2.5 bg-gray-300 text-2xl font-bold fixed w-full shadow-md">
-    ZIVA KOMERC D.O.O - PANČEVO, SERBIA - 0100 100 100
+---
+const {anchorText1, href1, anchorText2, href2, anchorText3, href3, anchorText4, href4} = Astro.props;
+---
+<div class="flex flex-row align-middle justify-center p-2.5 bg-gray-300 text-2xl font-bold fixed w-full shadow-md min-h-10">
+    <a href={href1}>{anchorText1}</a>
+    <a href={href2}>{anchorText2}</a>
+    <a href={href3}>{anchorText3}</a>
+    <a href={href4}>{anchorText4}</a>
+
 </div>
