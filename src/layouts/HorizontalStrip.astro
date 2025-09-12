@@ -1,8 +1,9 @@
 ---
 const { class: className = "" } = Astro.props;
+const { id } = Astro.props;
 ---
 
-<div class="flex flex-row align-middle justify-center  mb-4">
+<div class="flex flex-row align-middle justify-center  mb-4" id={id}>
   <slot name="left" />
   <slot name="right" />
 </div>

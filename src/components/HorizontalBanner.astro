@@ -1,10 +1,11 @@
 ---
 const {anchorText1, href1, anchorText2, href2, anchorText3, href3, anchorText4, href4} = Astro.props;
+const { anchorClass = "ml-2 mr-2 hover:text-red-500"} = Astro.props;
 ---
-<div class="flex flex-row align-middle justify-center p-2.5 bg-gray-300 text-2xl font-bold fixed w-full shadow-md min-h-10">
-    <a href={href1}>{anchorText1}</a>
-    <a href={href2}>{anchorText2}</a>
-    <a href={href3}>{anchorText3}</a>
-    <a href={href4}>{anchorText4}</a>
+<div class="flex flex-row align-middle  justify-center p-2.5 bg-gray-300 text-2xl font-bold fixed w-full shadow-md min-h-10">
+    <a href={href1} class={anchorClass}>{anchorText1}</a>
+    <a href={href2} class={anchorClass}>{anchorText2}</a>
+    <a href={href3} class={anchorClass}>{anchorText3}</a>
+    <a href={href4} class={anchorClass}>{anchorText4}</a>
 
 </div>

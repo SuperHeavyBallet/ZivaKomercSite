@@ -14,6 +14,7 @@ import ContactForm from '../components/ContactForm.astro';
 import MapBlock from '../components/MapBlock.astro';
 import ImageCatalogue from '../layouts/ImageCatalogue.astro';
 import CatalogueImage from '../components/CatalogueImage.astro';
+import SingleTextBlock from '../components/SingleTextBlock.astro';
 
 //Hero Block
 const { companyName = "Ziva Komerc" } = Astro.props;
@@ -41,37 +42,44 @@ const { imageSrc_1 = "src/images/HeroImage.png"} = Astro.props;
 
 //Navbar
 
-const { anchorText1 = "Text1", anchorHref1 = ""} = Astro.props;
-const { anchorText2 = "Text2", anchorHref2 = ""} = Astro.props;
-const { anchorText3 = "Text3", anchorHref3 = ""} = Astro.props;
-const { anchorText4 = "Contact", anchorHref4 = "#contactForm"} = Astro.props;
+const { anchorText1 = "Home", anchorHref1 = "home"} = Astro.props;
+const { anchorText2 = "About", anchorHref2 = "about"} = Astro.props;
+const { anchorText3 = "Location", anchorHref3 = "location"} = Astro.props;
+const { anchorText4 = "Contact", anchorHref4 = "contact"} = Astro.props;
 
 ---
 
 <Layout>	
 	
-	<HorizontalBanner
-		anchorText1={anchorText1} href1={anchorHref1}
-		anchorText2={anchorText2} href2={anchorHref2}
-		anchorText3={anchorText3} href3={anchorHref3}
-		anchorText4={anchorText4} href4={anchorHref4}/>
+	<div class="fixed inset-0 -z-10 bg-gradient-to-br from-sky-100 to-indigo-100"></div>
+
+	<HorizontalBanner 
+		anchorText1={anchorText1} href1={`#${anchorHref1}`}`
+		anchorText2={anchorText2} href2={`#${anchorHref2}`}
+		anchorText3={anchorText3} href3={`#${anchorHref3}`}
+		anchorText4={anchorText4} href4={`#${anchorHref4}`}/>
 	<HorizontalGhostBanner />
 
-	<HorizontalStrip>
+	<HorizontalStrip id={anchorHref1}>
 		<SingleImageSection slot="left" alt="Head image of Ziva Komerc Store" imgSrc={heroImgSrc}/>
 		<HeroBlock slot="right" headText={companyName} bodyText={companyDescription} anchorText={contactAnchorText} anchorHref="#contactForm" />
 		
 	  </HorizontalStrip>
 
 
-	  <HorizontalStrip>
+	  <HorizontalStrip >
 		
 		<SingleGoogleReview slot="left" headText={review1UserName} href={review1Href} bodyText={review1Text} numberOfStars={review1Score}/>
 		<SingleGoogleReview slot="left" headText={review2UserName} href={review2Href} bodyText={review2Text} numberOfStars={review2Score}/>
 		<SingleGoogleReview slot="right" headText={review3UserName} href={review3Href} bodyText={review3Text} numberOfStars={review3Score}/>
 	  </HorizontalStrip>
 
-	  <ImageCatalogue>
+	  <HorizontalStrip id={anchorHref2}>
+		<SingleTextBlock></SingleTextBlock>
+		<SingleImageSection slot="right" alt="Image of Ziva Komerc Store" imgSrc={heroImgSrc}></SingleImageSection>
+	  </HorizontalStrip>
+
+	  <ImageCatalogue >
 		<CatalogueImage imgSrc={imageSrc_1} ></CatalogueImage>
 		<CatalogueImage imgSrc={imageSrc_1} ></CatalogueImage>
 		<CatalogueImage imgSrc={imageSrc_1} ></CatalogueImage>
@@ -80,12 +88,12 @@ const { anchorText4 = "Contact", anchorHref4 = "#contactForm"} = Astro.props;
 		<CatalogueImage imgSrc={imageSrc_1} ></CatalogueImage>
 	  </ImageCatalogue>
 
-	  <HorizontalStrip>
+	  <HorizontalStrip id={anchorHref3}>
 		<AddressBlock slot="left" workingHours={workingHours} addressText1={companyAddress[0]} addressText2={companyAddress[1]} addressText3={companyAddress[2]} phoneNumber={phoneNumber} />
 		<MapBlock slot="right" />
 	  </HorizontalStrip>
 
-	  <HorizontalStrip>
+	  <HorizontalStrip id={anchorHref4}>
 		<ContactForm slot="left" headText="Contact Form" bodyText="ContactForm" footText="ContactForm" />
 	  </HorizontalStrip>
 	  	
