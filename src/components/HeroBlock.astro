@@ -9,5 +9,5 @@ const { id } = Astro.props;
 <div class="p-5 m-5 max-w-120 flex flex-col justify-center" id={id}>
     <h1 class="align-middle justify-center text-center mb-1.5 font-bold text-4xl">{headText}</h1>
     <h3 class=" justify-center text-center mb-1.5 font-bold text-2xl">{bodyText}</h3>
-    <a href={anchorHref}>{anchorText}</a>
+    <a class="align-middle justify-center bg-red-500 rounded-md shadow-md text-center" href={anchorHref}>{anchorText}</a>
 </div>
