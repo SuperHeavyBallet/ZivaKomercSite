@@ -62,7 +62,7 @@ const { anchorText4 = "Contact", anchorHref4 = "contact"} = Astro.props;
 
 	<HorizontalStrip id={anchorHref1}>
 		<SingleImageSection slot="left" alt="Head image of Ziva Komerc Store" imgSrc={heroImgSrc}/>
-		<HeroBlock slot="right" headText={companyName} bodyText={companyDescription} anchorText={contactAnchorText} anchorHref="#contactForm" />
+		<HeroBlock slot="right" headText={companyName} bodyText={companyDescription} anchorText={contactAnchorText} anchorHref={`#${anchorHref4}`} />
 		
 	  </HorizontalStrip>
 
